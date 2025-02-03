@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  contents: MyText
+  latitude: 1.5
+  longitude: 1.5
+  visited_at: 2025-02-03 18:48:26
+  is_active: false
+
+two:
+  title: MyString
+  contents: MyText
+  latitude: 1.5
+  longitude: 1.5
+  visited_at: 2025-02-03 18:48:26
+  is_active: false

@@ -1,0 +1,14 @@
+class CreatePosts < ActiveRecord::Migration[6.1]
+  def change
+    create_table :posts do |t|
+      t.string :title
+      t.text :contents
+      t.float :latitude #緯度
+      t.float :longitude #経度
+      t.datetime :visited_at #訪問日時
+      t.boolean :is_active #投稿の公開有無
+
+      t.timestamps
+    end
+  end
+end
