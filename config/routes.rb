@@ -1,16 +1,26 @@
 Rails.application.routes.draw do
-
-  namespace :public do
-    get 'relationships/followings'
-    get 'relationships/followers'
-  end
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :posts do
+      resources :post_comments, only: [:destroy]
+    end
   end
-  
+
   namespace :public do
-    resources :users, only: [:show, :edit, :update, :destroy]
-    resources :posts
+    resources :users, only: [:show, :edit, :update, :destroy] do
+      resource :relationships, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
+    end
+
+    resources :posts do
+      collection do
+        get 'following_feed'
+      end
+      resources :post_comments, only: [:create, :destroy]
+      resources :bookmarks, only: [:create, :destroy]
+      get "bookmarked_posts" => "posts#bookmarked"
+    end
   end
   
   root to: "homes#top"
