@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
   end
+  
   namespace :public do
     resources :users, only: [:show, :edit, :update, :destroy]
+    resources :posts
   end
   
   root to: "homes#top"
