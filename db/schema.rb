@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_02_04_140839) do
+ActiveRecord::Schema.define(version: 2025_02_04_161530) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,31 +54,31 @@ ActiveRecord::Schema.define(version: 2025_02_04_140839) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "calenders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.string "location"
-    t.datetime "event_at"
+    t.datetime "event_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_tags", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -86,16 +86,17 @@ ActiveRecord::Schema.define(version: 2025_02_04_140839) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "contents"
-    t.float "latitude"
-    t.float "longitude"
-    t.datetime "visited_at"
-    t.boolean "is_active"
+    t.string "address", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.datetime "visited_at", null: false
+    t.boolean "is_active", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "tag"
+    t.string "tag", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
