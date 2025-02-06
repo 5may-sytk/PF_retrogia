@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
           <%= link_to root_path do %>
-            <%= image_tag("logo.png", alt: "Logo", width: 200, height: 75, class: "d-inline-block align-text-top mr-2") %>
+            <%= image_tag("icon/logo.png", alt: "Logo", width: 200, height: 75, class: "d-inline-block align-text-top mr-2") %>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
                 <%= link_to 'About', about_path, class: 'nav-btn text-dark', style: 'font-size: 20px;' %>
               </li>
               <li class="nav-item" style="padding-left: 10px;">
-                <%= link_to 'Home', about_path, class: 'nav-btn text-dark', style: 'font-size: 20px;' %>
+                <%= link_to 'Home', public_posts_path, class: 'nav-btn text-dark', style: 'font-size: 20px;' %>
               </li>
               <li class="nav-item" style="padding-left: 10px;">
                 <%= link_to 'Log in', new_user_session_path, class: 'nav-btn text-dark', style: 'font-size: 20px;' %>
