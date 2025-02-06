@@ -3,3 +3,36 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.bg-image {
+  position: relative;
+  background-image: url('PENTAFANPK98003_TP_V.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bg-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(84, 145, 127, 0.4); 
+  transform: skewY(-10deg);
+  z-index: 1;
+}
+
+.bg-text {
+  z-index: 2; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
