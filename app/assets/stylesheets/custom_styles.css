@@ -7,6 +7,7 @@
 header {
   background-color: #eae8e1;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 横方向、縦方向、ぼかし量、色を指定 */
+  z-index: 1000;
 }
 
 .btn-custom {
@@ -16,5 +17,5 @@ header {
 footer {
   background-color: #eae8e1;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* 横方向、縦方向、ぼかし量、色を指定 */
-  olor: #622d18;
+  z-index: 1000;
 }
