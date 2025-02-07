@@ -1,2 +1,62 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<%= stylesheet_link_tag 'new_post_styles' %>
+
+<div class="container">
+	<div class="row">
+    
+    <div class="col-3 sidebar">
+    <!-- サイドバー --> 
+    </div>
+
+    <div class="col-9 main-content"> 
+    <!-- 入力フォーム --> 
+      <div class="row">
+        <div class="col">
+          <h2 class = "title"> New</h2> 
+          <br>
+          <%= form_with(model: @post, url: public_posts_path) do |f| %>
+
+            <!-- 画像 --> 
+            <div class="form-group row">
+              <label for="image" class="col-sm-3 col-form-label">写真アップロード</label>
+              <div class="col-sm-9 col-form">
+                <%= f.file_field :item_image, accept: "image/*", class: "form-control-file" %>
+              </div>
+            </div>
+
+            <!-- タイトル --> 
+            <div class="form-group row">
+              <label for"title", class="col-sm-3 col-form-label">タイトル</label>
+              <div class="col-sm-9">
+                <%= f.text_field :title,placeholder:"近所を散歩", class:"form-control" %>
+              </div>
+            </div>
+
+            <!-- 詳細 --> 
+            <div class = "form-groupe row">
+              <label for"contents", class="col-sm-3 col-form-label">投稿詳細</label><br>
+              <div class="col-sm-9">
+                <%= f.text_area :contents, placeholder:"行ったことのない喫茶店を発見！", class:"form-control" %><br>
+              </div>
+            </div>
+
+            <!-- 訪問場所 --> 
+            <div class="form-group row">
+              <label for"address", class="col-sm-3 col-form-label">行った場所（住所）</label>
+              <div class="col-sm-9">
+                <%= f.text_field :address,placeholder:"レトロジア", class:"form-control" %>
+              </div>
+            </div>
+
+            <!-- 投稿時間 -->
+
+            <!-- タグ入力 --> 
+            
+            <!-- 公開設定 --> 
+
+            <!-- 投稿ボタン --> 
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

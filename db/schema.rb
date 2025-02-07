@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2025_02_04_161530) do
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.datetime "visited_at", null: false
-    t.boolean "is_active", null: false
+    t.integer "visibility", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,7 @@
+  ja:
+    enums:
+      post:
+        visibility:
+          post_public: "全体公開"
+          post_unlisted: "フォロワーのみ公開"
+          post_private: "非公開"

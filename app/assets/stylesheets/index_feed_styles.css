@@ -16,7 +16,20 @@
   box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5); /* 右側に影を追加, 水平,垂直,ブラー半径,スプレッド半径  */
 }
 
+.sidebar-item{
+}
+
 .side-nav{
+  list-style-type: none;
+}
+
+.side-nav {
+  padding-left: 10px;
+  text-align: center;
+}
+
+.side-nav-item {
+  font-size: 25px;
   color: #622d18;
 }
 
