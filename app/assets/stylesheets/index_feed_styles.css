@@ -4,12 +4,11 @@
   box-sizing: border-box;
 }
 
-
 .sidebar {
   position: fixed; /*ウィンドウに対して固定された位置に要素を配置*/
   top: 85px; /*ヘッダーと重ねないため*/
   left: 0; /*左側に配置*/
-  /*width: 25%; なくすと自動で幅が決まる*/
+  width: 15%;  /*なくすと自動で幅が決まる*/
   height: 100%;
   background-color: rgba(84, 145, 127, 0.1);
   padding: 20px;
@@ -17,7 +16,12 @@
   box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5); /* 右側に影を追加, 水平,垂直,ブラー半径,スプレッド半径  */
 }
 
+.side-nav{
+  color: #622d18;
+}
+
 .main-content {
-  margin-left: 175px; /* サイドバーの幅+余白分 */
+  margin-left: 150px; /* サイドバーの幅+余白分 */
   padding: 20px;
 }
+  
