@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
       t.string :name  # 名前
       t.text :introduction  # 自己紹介文
+      t.boolean :public_at #ユーザーの公開設定
       t.timestamps null: false
     end
 

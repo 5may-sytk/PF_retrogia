@@ -67,6 +67,7 @@
             <div class="form-group row">
               <label for"visited_at", class="col-sm-3 col-form-label">公開範囲</label>
               <div class="col-sm-7">
+                <%= f.collection_radio_buttons :visibility, Post.posts_visibility_ranges_i18n, :first , :last  %>
               </div>
             </div>
 

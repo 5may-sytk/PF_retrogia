@@ -6,10 +6,11 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to request.referer
+      redirect_to public_posts_path
     else
       flash.now[:notice] = "登録に失敗しました。"
       render :new
+    end
   end
 
   def index
@@ -31,6 +32,7 @@ class Public::PostsController < ApplicationController
     else
       flash.now[:notice] = "編集に失敗しました。"
       render :edit
+    end
   end
 
   def destroy
@@ -41,6 +43,6 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :contents, :latitude, :longitude, :visited_at, :tags, :visibility, :post_image)
+    params.require(:post).permit(:title, :contents, :address, :latitude, :longitude, :visited_at, :tags, :visibility, :post_image)
   end
 end
