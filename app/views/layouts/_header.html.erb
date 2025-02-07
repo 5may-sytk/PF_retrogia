@@ -37,10 +37,7 @@
                   <%= link_to 'New', new_public_post_path, class: 'btn btn-custom', style: 'font-size: 20px;' %>
                 </li>
                 <li class="nav-item" style="padding-left: 10px;">
-                  <%= link_to 'Mypege', public_posts_path, class: 'btn btn-custom', style: 'font-size: 20px;' %>
-                </li>
-                <li class="nav-item" style="padding-left: 10px;">
-                  <%= link_to 'Follower', following_feed_public_posts_path, class: 'btn btn-custom', style: 'font-size: 20px;' %>
+                  <%= link_to 'Search', public_posts_path, class: 'btn btn-custom', style: 'font-size: 20px;' %>
                 </li>
                 <li class="nav-item" style="padding-left: 10px;">
                   <%= link_to 'Log out',destroy_user_session_path, class: 'btn btn-custom', style: 'font-size: 20px;', method: :delete %>

@@ -1,22 +1,46 @@
 class Public::PostsController < ApplicationController
   def new
+    @post = Post.new
   end
 
   def create
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to request.referer
+    else
+      flash.now[:notice] = "登録に失敗しました。"
+      render :new
   end
 
   def index
+    @posts = Post.all
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to public_user_path(current_user.id)
+    else
+      flash.now[:notice] = "編集に失敗しました。"
+      render :edit
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    post.destroy
+    redirect_to public_user_path(current_user.id)
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :contents, :latitude, :longitude, :visited_at, :tags, :visibility, :post_image)
   end
 end
