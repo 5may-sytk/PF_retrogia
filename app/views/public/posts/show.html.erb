@@ -1,2 +1,24 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<%= stylesheet_link_tag 'new_post_styles' %>
+
+<div class="container">
+	<div class="row">
+    
+    <div class="col-3 sidebar">
+    <!-- サイドバー --> 
+    </div>
+
+    <div class="col-8 main-content"> 
+    <!-- 投稿詳細 -->
+      <div class="row show">
+        <div class="col-6 image">
+          <% if @post.post_image.attached? %>
+            <%= image_tag url_for(@post.post_image), size: "500x300" %>
+          <% else %>
+            <%= image_tag 'noimage.png', size: "250x150" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

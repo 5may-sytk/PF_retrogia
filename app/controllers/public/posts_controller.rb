@@ -6,7 +6,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to public_posts_path
+      redirect_to request.env["HTTP_REFERER"]
     else
       flash.now[:notice] = "登録に失敗しました。"
       render :new
