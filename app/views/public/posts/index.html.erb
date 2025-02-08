@@ -6,7 +6,11 @@
     <div class="col-2 sidebar"> <!-- サイドバー -->  
       <div class="sidebar-item">
         <ul class="side-nav me-auto mb-2 mb-lg-0,">
-          <li>
+          <% if admin_signed_in?  %>
+              <!-- アドミンサイドバー -->
+          <% elsif user_signed_in? %>
+            <!-- ユーザーサイドバー -->
+            <li>
             <%= link_to public_user_path(current_user.id), class: 'side-nav-item' do %>
               My Page
             <% end %>
@@ -30,8 +34,24 @@
                 Follower
               <% end %>
             </li>
-            
-          </li>
+          <% else %>
+            <!-- 非ログイン時 --> 
+            <li>
+              <%= link_to public_posts_path, class: 'side-nav-item' do %>
+                Home
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path, class: 'side-nav-item' do %>
+                Log in
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path, class: 'side-nav-item' do %>
+                Sing up
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
