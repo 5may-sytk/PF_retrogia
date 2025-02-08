@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 
-    <div class="col-3 sidebar"> <!-- サイドバー -->  
+    <div class="col-2 sidebar"> <!-- サイドバー -->  
       <div class="sidebar-item">
         <ul class="side-nav me-auto mb-2 mb-lg-0,">
           <li>
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="col-8 main-content"> 
+    <div class="col-9 main-content"> 
     <!--メイン-->
       <table class='table table-hover'>
         <tbody>
@@ -44,15 +44,13 @@
             <tr>
               <td>
                 <% if post.post_image.attached? %>
-                  <% if post.post_image.attached? %>
                   <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
                     <%= image_tag url_for(post.post_image), size: "250x150" %>
                   <% end %>
                 <% else %>
                   <%= image_tag 'noimage.png', size: "250x150" %>
                 <% end %>
-              <% end %>
-              </td>
+                </td>
                 <br>
                 <td>
                   <%= post.title %><br>

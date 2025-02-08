@@ -3,3 +3,41 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.user-show {
+  padding-left: 300px;
+  margin-top: 20px;
+}
+
+.user_image {
+  display: flex;
+  justify-content: center;
+}
+
+.user-info{
+  margin-left: 50px;
+}
+
+.user-table-edit{
+  text-align: right
+}
+
+.user-table{
+  text-align: center;
+}
+
+.user-edit-button{
+  background-color: #54917f; 
+  color: white; /* デフォルトのテキスト色 */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;/* 四隅を丸くする */
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s; /* アニメーションを追加 */
+}
+
+.user-edit-button:hover {
+  background-color: #54917f88; /* ホバー時の背景色 */
+  color: white; /* ホバー時のテキスト色 */
+}

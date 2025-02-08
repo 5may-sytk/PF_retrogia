@@ -3,15 +3,15 @@
 <div class="container">
 	<div class="row">
     
-    <div class="col-3 sidebar">
+    <div class="col-2 sidebar">
     <!-- サイドバー --> 
     </div>
 
-    <div class="col-8 p-edit-forms"> 
+    <div class="col-9"> 
     <!-- 入力フォーム --> 
       <div class="row">
-        <div class="col">
-          <h2 class = "title">Edit</h2> 
+        <div class="col p-forms">
+          <h2 class = "title"> Edit</h2> 
           <br>
           <%= render 'form', post: @post, form_url: public_post_path, submit_text: ' 編集 ' %>
         </div>

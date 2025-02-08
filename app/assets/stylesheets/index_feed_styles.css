@@ -7,9 +7,11 @@
 .sidebar {
   position: fixed; /*ウィンドウに対して固定された位置に要素を配置*/
   left: 0; /*左側に配置*/
-  width: 15%;  /*なくすと自動で幅が決まる*/
+  top: 0;
+  /*width: 15%;  なくすと自動で幅が決まる*/
   height: 100%;
-  background-color: rgba(84, 145, 127, 0.1);
+  /*background-color: rgba(84, 145, 127, 0.1);*/
+  background-color: rgba(98, 45, 24, 0.2);
   padding: 20px;
   overflow: auto; /*必要に応じてスクロールバーを配置*/
   box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.5); /* 右側に影を追加, 水平,垂直,ブラー半径,スプレッド半径  */
@@ -20,11 +22,13 @@
 
 .side-nav{
   list-style-type: none;
+  
 }
 
 .side-nav {
   padding-left: 10px;
   text-align: center;
+  margin-top: 100px;
 }
 
 .side-nav-item {
@@ -33,7 +37,7 @@
 }
 
 .main-content {
-  margin-left: 150px; /* サイドバーの幅+余白分 */
+  margin-left: 15%; /* サイドバーの幅+余白分 */
   padding: 20px;
 }
   

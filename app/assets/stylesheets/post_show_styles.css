@@ -3,3 +3,50 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.post-show{
+  padding-left: 300px;
+  margin-top: 20px;
+}
+
+.post-image {
+  display: flex;
+  justify-content: center;
+}
+
+.user-info {
+  margin: auto;
+}
+
+.btn-area{
+  display: flexbox;
+  padding-left: 242px;
+}
+
+.post-edit-button{  
+  padding: 10px 20px;
+  border-radius: 30px;/* 四隅を丸くする */
+  margin: 10px;
+  background-color:#546791;
+  color: white;
+  border: none;
+  transition: background-color 0.3s; /* アニメーションを追加 */
+}
+.post-edit-button:hover{  
+  background-color: #54917f88; /* ホバー時の背景色 */
+  color: white; /* ホバー時のテキスト色 */
+}
+
+.post-delete-button{
+  padding: 10px 20px;
+  border-radius: 30px;/* 四隅を丸くする */
+  margin: 10px;
+  background-color:#915467;
+  color: white;
+  border: none;
+  transition: background-color 0.3s; /* アニメーションを追加 */
+}
+.post-delete-button:hover{
+  background-color: #54917f88; /* ホバー時の背景色 */
+  color: white; /* ホバー時のテキスト色 */
+}

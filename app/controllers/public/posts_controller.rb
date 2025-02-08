@@ -30,7 +30,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to public_user_path(current_user.id)
+      redirect_to public_post_path(@post.id)
     else
       flash.now[:notice] = "編集に失敗しました。"
       render :edit
@@ -39,7 +39,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    post.destroy
+    @post.destroy
     redirect_to public_user_path(current_user.id)
   end
 

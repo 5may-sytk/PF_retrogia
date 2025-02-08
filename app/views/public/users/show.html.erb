@@ -3,15 +3,57 @@
 <div class="container">
 	<div class="row">
     
-    <div class="col-3 sidebar">
+    <div class="col-2 sidebar">
     <!-- サイドバー --> 
     </div>
 
-    <div class="col-8 user-show"> 
+    <div class="col-10 user-show"> 
     <!-- ユーザー詳細 -->
-    <div class="row">
-      <div class="col">
-        <h2 class = "title">User</h2> 
+      <div class="row user_image">
+          <% if @user.user_image.attached? %>
+            <%= image_tag url_for(@user.user_image), size: "200x200" %>
+          <% else %>
+            <%= image_tag 'icon/default_image.jpg', size: "200x200" %>
+          <% end %>
+      </div>
+      <div class="row user-info">
+        <table class="table table-borderless user-table-edit">
+        <tr>
+          <th></th>
+          <td>
+            <%= button_to "User Edit", edit_public_user_path(@user), method: :get , class: "user-edit-button" %>
+          </td>
+        </tr>
+        </table>
+        <table class ="table user-table">
+          <tr>
+            <th>User Nmae</th>
+            <td colspan="5"></td>
+            <td>
+              <%= @user.name %>
+            </td>
+
+          </tr>
+          <tr>
+            <th>Introduction</th>
+            <td colspan="5"></td>
+            <td>
+              <%= @user.introduction %>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="row user-posts">
+        <% @posts.each do |post| %>
+          <% if post.post_image.attached? %>
+            <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
+              <%= image_tag url_for(post.post_image), size: "250x150" %>
+            <% end %>
+          <% else %>
+            <%= image_tag 'noimage.png', size: "250x150" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
