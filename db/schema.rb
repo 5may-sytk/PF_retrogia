@@ -58,15 +58,17 @@ ActiveRecord::Schema.define(version: 2025_02_07_170121) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_bookmarks_on_post_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
     t.string "location"
     t.datetime "event_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -74,6 +76,8 @@ ActiveRecord::Schema.define(version: 2025_02_07_170121) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_comments_on_post_id"
+    t.index ["user_id"], name: "index_post_comments_on_user_id"
   end
 
   create_table "post_tags", force: :cascade do |t|
@@ -81,6 +85,8 @@ ActiveRecord::Schema.define(version: 2025_02_07_170121) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["user_id"], name: "index_post_tags_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -93,8 +99,10 @@ ActiveRecord::Schema.define(version: 2025_02_07_170121) do
     t.string "tags"
     t.integer "visibility", default: 0
     t.integer "user_id"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_posts_on_event_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

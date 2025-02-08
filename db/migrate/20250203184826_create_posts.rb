@@ -9,7 +9,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.datetime :visited_at, default: -> { 'CURRENT_TIMESTAMP' } #訪問日時
       t.string :tags #タグ
       t.integer :visibility, default:0 #投稿の公開有無
-      t.references :user
+      t.references :user #Userモデルとのリレーション
+      t.references :event #EventEventモデルとのリレーション
 
       t.timestamps
     end
