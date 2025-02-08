@@ -12,11 +12,39 @@
       <div class="row show">
         <div class="col-6 image">
           <% if @post.post_image.attached? %>
-            <%= image_tag url_for(@post.post_image), size: "500x300" %>
+            <%= image_tag url_for(@post.post_image), size: "300x200" %>
           <% else %>
             <%= image_tag 'noimage.png', size: "250x150" %>
           <% end %>
         </div>
+
+        <div class="col-6 info">
+          <table>
+            <tbody>
+              <tr>
+                <th class="col-6 info-title">タイトル</th>
+                <td class="col-6"><%= @post.title %></td>
+              </tr>
+              <tr>
+                <th class="col-6 info-title">ユーザー名</th>
+                <td class="col-6"><%= @post.user.name %></td>
+              </tr>
+              <tr>
+                <th class="col-6 info-title">詳細</th>
+                <td class="col-6"><%= @post.contents %></td>
+              </tr>
+              <tr>
+                <th class="col-6 info-title">場所</th>
+                <td class="col-6"><%= @post.address %></td>
+              </tr>
+              <tr>
+                <th class="col-6 info-title">訪問日時</th>
+                <td class="col-6"><%= @post.visited_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </div>
 

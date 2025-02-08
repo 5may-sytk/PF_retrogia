@@ -1,2 +1,21 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<%= stylesheet_link_tag 'new_post_styles' %>
+
+<div class="container">
+	<div class="row">
+    
+    <div class="col-3 sidebar">
+    <!-- サイドバー --> 
+    </div>
+
+    <div class="col-8 p-edit-forms"> 
+    <!-- 入力フォーム --> 
+      <div class="row">
+        <div class="col">
+          <h2 class = "title">Edit</h2> 
+          <br>
+          <%= render 'form', post: @post, form_url: public_post_path, submit_text: ' 編集 ' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,5 +27,6 @@ class User < ApplicationRecord
   #has_many :followers, through: :passive_relationships, source: :follower
 
   has_one_attached :user_image
+  has_one_attached :user_hd_image
 end
 
