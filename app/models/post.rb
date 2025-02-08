@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   has_one_attached :post_image
 
   belongs_to :user
-  belongs_to :event
+  #belongs_to :event
   has_many :bookmarks, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :post_tags

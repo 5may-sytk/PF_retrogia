@@ -56,24 +56,26 @@
             </div>
 
             <!-- タグ入力 --> 
-            <div class="form-group row">
-              <label for"visited_at", class="col-sm-3 col-form-label">タグ（カンマ区切り）</label>
-              <div class="col-sm-7">
-                <%= f.text_field :tags,placeholder:"例: 散歩, 喫茶店, 近所", class:"form-control" %>
-              </div>
-            </div>
-            
-            <!-- 公開設定 --> 
-            <div class="form-group row">
-              <label for"visited_at", class="col-sm-3 col-form-label">公開範囲</label>
-              <div class="col-sm-7">
-                <%= f.collection_radio_buttons :visibility, Post.posts_visibility_ranges_i18n, :first , :last  %>
-              </div>
-            </div>
+<div class="form-group row">
+  <label for"visited_at", class="col-sm-3 col-form-label">タグ（カンマ区切り）</label>
+  <div class="col-sm-7">
+    <%
+      #= f.text_field :tags,placeholder:"例: 散歩, 喫茶店, 近所", class:"form-control" 
+    %>
+  </div>
+</div>
+
+<!-- 公開設定 --> 
+<div class="form-group row">
+  <label for"visited_at", class="col-sm-3 col-form-label">公開範囲</label>
+  <div class="col-sm-7">
+    <%= f.collection_radio_buttons :visibility, Post.posts_visibility_ranges_i18n, :first , :last  %>
+  </div>
+</div>
 
             <!-- 投稿ボタン --> 
             <div class="form-group row justify-content-center">
-                <%= f.submit '　新規登録　', class: "btn btn-sm btn-success" %>
+              <%= f.submit '　新規登録　', class: "btn btn-sm btn-success" %>
             </div>
           <% end %>
         </div>

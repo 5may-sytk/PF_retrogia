@@ -5,8 +5,10 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to request.env["HTTP_REFERER"]
+    @post.user_id = current_user.id
+
+    if @post.save!
+      redirect_to public_posts_path
     else
       flash.now[:notice] = "登録に失敗しました。"
       render :new
@@ -43,6 +45,8 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :contents, :address, :latitude, :longitude, :visited_at, :tags, :visibility, :post_image)
+    params.require(:post).permit(:title, :contents, :address, :latitude, :longitude, :visited_at,
+    # :tags, 
+    :visibility, :post_image)
   end
 end
