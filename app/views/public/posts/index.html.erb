@@ -16,19 +16,41 @@
             <% @posts.each do |post| %>
               <tr>
                 <td>
-                  <% if post.post_image.attached? %>
-                    <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
-                      <%= image_tag url_for(post.post_image), size: "250x200" %>
+                  <span class="image">
+                    <% if post.post_image.attached? %>
+                      <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
+                        <%= image_tag url_for(post.post_image), size: "250x200" %>
+                      <% end %>
+                    <% else %>
+                      <%= image_tag 'noimage.png', size: "250x200" %>
                     <% end %>
-                  <% else %>
-                    <%= image_tag 'noimage.png', size: "250x200" %>
-                  <% end %>
-                  <br>
-                    <span>
-                      <%= post.title %><br>
-                      <%= post.user.name %>
-                    </span>
+                  </span>
                   </td>
+                  <td class="post-info">
+                  <span>
+                    <br>
+                    <br>
+                  </span>
+                  <span class="">
+                    <%= link_to public_post_path(post.id), class: 'btn post-title' do %>
+                      <%= post.title %><br>
+                    <% end %>
+                  </span>
+                  <span>
+                    <br>
+                  </span>
+                  <span class="">
+                    <%= link_to public_user_path(post.user.id), class: 'btn post-user' do %>
+                      <%= post.user.name %>
+                    <% end %>
+                  </span>
+                  <span>
+                    <br>
+                  </span>
+                  <span class="post-tags">
+                    <%=  %>
+                  </span>
+                </td>
               </tr>
             <% end %>
           </tbody>

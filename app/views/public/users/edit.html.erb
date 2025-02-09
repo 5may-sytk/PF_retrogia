@@ -5,15 +5,16 @@
     
     <div class="col-2 sidebar">
       <!-- サイドバー --> 
-      
+      <%= render 'public/posts/sidebar' %>
     </div>
-
+    
     <!-- 編集画面 -->
     <div class="col-9 u-edit-forms"> 
+    <br>
       <%= form_with(model: @user, url: public_user_path(@user)) do |f| %>
 
         <!-- 画像 -->
-        <div class="form-group row">
+        <div class="form-groupe row">
           <label for="user_image" class="col-sm-4 col-form-label">ユーザー画像</label>
           <div class="col-sm-8 col-form">
             <%= f.file_field :user_image, accept: "image/*", class: "form-control-file" %>
@@ -21,7 +22,7 @@
         </div>
 
         <!-- 名前 --> 
-        <div class="form-group row">
+        <div class="form-groupe row">
           <label for="name" class="col-sm-4 col-form-label">User name</label>
           <div class="col-sm-8">
             <%= f.text_field :name, class:"form-control" %>

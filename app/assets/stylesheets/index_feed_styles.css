@@ -18,17 +18,17 @@
 }
 
 .sidebar-item{
+  font-family: Century Gothic;
 }
 
 .side-icon{
-  padding-left: 10px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .side-nav {
-  padding-left: 10px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
   list-style-type: none;
 }
 
@@ -37,8 +37,25 @@
   color: #622d18;
 }
 
+
 .main-content {
-  margin-left: 15%; /* サイドバーの幅+余白分 */
+  margin-left: 20%; /* サイドバーの幅+余白分 */
   padding: 20px;
 }
-  
+
+.post-info{
+  margin-top: 20px;
+  text-align: left;
+}
+
+.post-title {
+  color: #622d18;
+  font-size: 25px;
+  margin: 0 auto;
+}
+.post-user {
+  color: #622d18;
+  font-size: 20px;
+}
+.post-tags{
+}
