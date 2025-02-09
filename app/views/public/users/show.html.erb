@@ -4,16 +4,17 @@
 	<div class="row">
     
     <div class="col-2 sidebar">
-    <!-- サイドバー --> 
+      <!-- サイドバー --> 
+      
     </div>
 
     <div class="col-10 user-show"> 
     <!-- ユーザー詳細 -->
       <div class="row user_image">
           <% if @user.user_image.attached? %>
-            <%= image_tag url_for(@user.user_image), size: "200x200" %>
+            <%= image_tag url_for(@user.user_image), size: "250x200" %>
           <% else %>
-            <%= image_tag 'icon/default_image.jpg', size: "200x200" %>
+            <%= image_tag 'icon/camera.logo2.png', size: "250x200" %>
           <% end %>
       </div>
       <div class="row user-info">
@@ -44,14 +45,18 @@
         </table>
       </div>
 
+      <br>
+      <div class="line"></div>
+      <br>
+
       <div class="row user-posts">
         <% @posts.each do |post| %>
           <% if post.post_image.attached? %>
             <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
-              <%= image_tag url_for(post.post_image), size: "250x150" %>
+              <%= image_tag url_for(post.post_image), size: "250x200" %>
             <% end %>
           <% else %>
-            <%= image_tag 'noimage.png', size: "250x150" %>
+            <%= image_tag 'noimage.png', size: "250x200" %>
           <% end %>
         <% end %>
       </div>

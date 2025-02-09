@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def edit
@@ -16,6 +16,6 @@ class Public::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:post).permit(:user_image, :user_hd_image, :name, :introduction, :public_at)
+    params.require(:user).permit(:user_image,  :name, :introduction, :is_public)
   end
 end

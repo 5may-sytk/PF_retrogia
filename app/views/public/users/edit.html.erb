@@ -1,15 +1,60 @@
-<%= stylesheet_link_tag '' %>
+<%= stylesheet_link_tag 'user_edit_styles' %>
 
 <div class="container">
 	<div class="row">
     
     <div class="col-2 sidebar">
-    <!-- サイドバー --> 
+      <!-- サイドバー --> 
+      
     </div>
 
     <!-- 編集画面 -->
     <div class="col-9 u-edit-forms"> 
+      <%= form_with(model: @user, url: public_user_path(@user)) do |f| %>
+
+        <!-- 画像 -->
+        <div class="form-group row">
+          <label for="user_image" class="col-sm-4 col-form-label">ユーザー画像</label>
+          <div class="col-sm-8 col-form">
+            <%= f.file_field :user_image, accept: "image/*", class: "form-control-file" %>
+          </div>
+        </div>
+
+        <!-- 名前 --> 
+        <div class="form-group row">
+          <label for="name" class="col-sm-4 col-form-label">User name</label>
+          <div class="col-sm-8">
+            <%= f.text_field :name, class:"form-control" %>
+          </div>
+        </div>
+
+        <!-- 詳細 --> 
+        <div class = "form-groupe row">
+          <label for"introduction", class="col-sm-4 col-form-label">Introduction</label><br>
+          <div class="col-sm-8">
+            <%= f.text_area :introduction,  class:"form-control" %><br>
+          </div>
+        </div>
+
+        <!-- 公開設定 --> 
+        <div class = "form-groupe row">
+          <label for"is_public", class="col-sm-4 col-form-label">公開ステータス</label><br>
+          <div class="col-sm-8 d-flex align-items-center">
+            <%= f.radio_button :is_public, :true %>
+            <%= f.label :is_public, "全体公開", value: :true, style: "margin: 3px;" %>
+            <%= f.radio_button :is_public, :false %>
+            <%= f.label :is_public, "公開停止中", value: :false, style: "margin: 3px;" %>
+          </div>
+        </div>
+
+        <br>
+
+        <!-- 承認 --> 
+          <div class = "submit row justify-content-center">
+            <%= f.submit " 保存 ", class: "btn btn-sm btn-success" %>
+          </div>
+        <br>
+      <% end %>
     </div>
-    
   </div>
 </div>

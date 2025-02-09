@@ -20,15 +20,16 @@
 .sidebar-item{
 }
 
-.side-nav{
-  list-style-type: none;
-  
+.side-icon{
+  padding-left: 10px;
+  text-align: center;
 }
 
 .side-nav {
   padding-left: 10px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 10px;
+  list-style-type: none;
 }
 
 .side-nav-item {

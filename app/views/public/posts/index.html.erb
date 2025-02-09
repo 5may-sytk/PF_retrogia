@@ -3,83 +3,38 @@
 <div class="container">
 	<div class="row">
 
-    <div class="col-2 sidebar"> <!-- サイドバー -->  
-      <div class="sidebar-item">
-        <ul class="side-nav me-auto mb-2 mb-lg-0,">
-          <% if admin_signed_in?  %>
-              <!-- アドミンサイドバー -->
-          <% elsif user_signed_in? %>
-            <!-- ユーザーサイドバー -->
-            <li>
-            <%= link_to public_user_path(current_user.id), class: 'side-nav-item' do %>
-              My Page
-            <% end %>
-            </li>
-            <li>
-              <%= link_to following_feed_public_posts_path, class: 'side-nav-item' do %>
-                Preference
-              <% end %>
-            </li>
-            <li>
-              <%= link_to public_post_bookmarked_posts_path(current_user.id), class: 'side-nav-item' do %>
-                Bookmark
-              <% end %>
-            </li>
-            <li>
-              <%= link_to root_path, class: 'side-nav-item' do %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to public_user_followings_path(current_user.id), class: 'side-nav-item' do %>
-                Follower
-              <% end %>
-            </li>
-          <% else %>
-            <!-- 非ログイン時 --> 
-            <li>
-              <%= link_to public_posts_path, class: 'side-nav-item' do %>
-                Home
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_user_session_path, class: 'side-nav-item' do %>
-                Log in
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_user_registration_path, class: 'side-nav-item' do %>
-                Sing up
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+    <div class="col-2 sidebar"> 
+      <!-- サイドバー -->  
+      <%= render 'sidebar' %>
     </div>
 
     <div class="col-9 main-content"> 
     <!--メイン-->
-      <table class='table table-hover'>
-        <tbody>
-          <% @posts.each do |post| %>
-            <tr>
-              <td>
-                <% if post.post_image.attached? %>
-                  <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
-                    <%= image_tag url_for(post.post_image), size: "250x150" %>
-                  <% end %>
-                <% else %>
-                  <%= image_tag 'noimage.png', size: "250x150" %>
-                <% end %>
-                </td>
-                <br>
+      <div class="posts">
+        <table class='table table-hover'>
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
                 <td>
-                  <%= post.title %><br>
-                  <%= post.user.name %>
-                </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+                  <% if post.post_image.attached? %>
+                    <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
+                      <%= image_tag url_for(post.post_image), size: "250x200" %>
+                    <% end %>
+                  <% else %>
+                    <%= image_tag 'noimage.png', size: "250x200" %>
+                  <% end %>
+                  <br>
+                    <span>
+                      <%= post.title %><br>
+                      <%= post.user.name %>
+                    </span>
+                  </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      
     </div>
   </div>
 </div>

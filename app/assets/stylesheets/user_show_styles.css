@@ -41,3 +41,7 @@
   background-color: #54917f88; /* ホバー時の背景色 */
   color: white; /* ホバー時のテキスト色 */
 }
+
+.line {
+  border-top: 2px 	dashed #622d18;
+}
