@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row" style="padding-top: 30px;">
+    <h5 class="title">Sign up</h5>
+  </div>
+
+  <br>
+
+  <div class="row" style="margin-bottom: 10px;">
+    <%= form_with model: @user, url: user_registration_path do |f| %>
+      <%= render "public/devise/shared/error_messages", resource: resource %>
+
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col field">
+          <%= f.label :"ニックネーム" %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "ニックネーム",placeholder:"Nick Name", class:"form-control", size:40; %>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"Email", class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col field">
+          <%= f.label :"パスワード" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col field">
+          <%= f.label :"パスワードを再入力してください" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+      
+      <br>
+
+      <div class="row">
+        <div class="col actions">
+          <button type="submit" class="btn btn-primary">ログイン</>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>

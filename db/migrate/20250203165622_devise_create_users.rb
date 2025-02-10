@@ -33,7 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       t.string :name  # 名前
-      t.text :introduction  # 自己紹介文
+      t.text :introduction, default: "こんにちは！！"  # 自己紹介文
+      t.boolean :is_public, default: "true" #ユーザーの公開設定
       t.timestamps null: false
     end
 

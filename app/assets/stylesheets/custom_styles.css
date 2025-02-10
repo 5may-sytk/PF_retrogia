@@ -6,8 +6,67 @@
 
 header {
   background-color: #eae8e1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 横方向、縦方向、ぼかし量、色を指定 */
+  z-index: 1000;
+}
+
+.btn-custom {
+  color: #622d18;
 }
 
 footer {
   background-color: #eae8e1;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* 横方向、縦方向、ぼかし量、色を指定 */
+  z-index: 1000;
+}
+
+.btn-area{
+  display: flex;
+  justify-content: center; /* 水平方向（横方向）に中央寄せ */
+  margin-top: 40px;
+}
+
+.login-button {
+  padding: 10px 20px;
+  border-radius: 30px;/* 四隅を丸くする */
+  margin-right: 20px;
+  border: none;
+  color: white;
+  background-color:#622d18;
+  transition: background-color 0.3s; /* アニメーションを追加 */
+}
+.login-button:hover {
+  background-color: transparent; /* 背景色を透明にする */
+  color: white; /* ホバー時のテキスト色 */
+  border: 2px solid #a3ccc0; /* アウトラインを設定 */
+}
+
+.signup-button{
+  padding: 10px 20px;
+  border-radius: 30px;/* 四隅を丸くする */
+  margin-right: 20px;
+  border: none;
+  color: white;
+  background-color:#622d18;
+  transition: background-color 0.3s; /* アニメーションを追加 */
+}
+.signup-button:hover{
+  background-color: transparent; /* 背景色を透明にする */
+  color: white; /* ホバー時のテキスト色 */
+  border: 1px solid #a3ccc0; /* アウトラインを設定 */
+}
+
+.gest-login-button{
+  padding: 10px 20px;
+  border-radius: 30px;/* 四隅を丸くする */
+  margin-right: 20px;
+  border: none;
+  color: white;
+  background-color:#622d18;
+  transition: background-color 0.3s; /* アニメーションを追加 */
+}
+.gest-login-button:hover{
+  background-color: transparent; /* 背景色を透明にする */
+  color: white; /* ホバー時のテキスト色 */
+  border: 1px solid #a3ccc0; /* アウトラインを設定 */
 }

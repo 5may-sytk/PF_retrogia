@@ -1,2 +1,58 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<%= stylesheet_link_tag 'post_show_styles' %>
+
+<div class="container">
+	<div class="row">
+    
+    <div class="col-2 sidebar">
+      <!-- サイドバー --> 
+      <%= render 'sidebar' %>
+    </div>
+
+    <div class="col-9 post-show"> 
+    <!-- 投稿詳細 -->
+      <div class="row post-image">
+        <% if @post.post_image.attached? %>
+          <%= image_tag url_for(@post.post_image), size: "300x200" %>
+        <% else %>
+          <%= image_tag 'noimage.png', size: "250x150" %>
+        <% end %>
+      </div>
+
+      <br>
+      <span class="row btn-area">
+        <%= button_to "Edit", edit_public_post_path(@post), method: :get , class: "post-edit-button" %>
+        <%= button_to "Delete", public_post_path(@post), method: :delete , class: "post-delete-button" %>
+      </span>
+      <br>
+
+      <div class="row info">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th  class="col-2 info-title">タイトル</th>
+              <td class="col-6"><%= @post.title %></td>
+            </tr>
+            <tr>
+              <th class="col-4 info-title">ユーザー名</th>
+              <td class="col-6"><%= @post.user.name %></td>
+            </tr>
+            <tr>
+              <th class="col-4 info-title">詳細</th>
+              <td class="col-6"><%= @post.contents %></td>
+            </tr>
+            <tr>
+              <th class="col-4 info-title">場所</th>
+              <td class="col-6"><%= @post.address %></td>
+            </tr>
+            <tr>
+              <th class="col-4 info-title">訪問日</th>
+              <td class="col-6"><%= @post.visited_at.strftime('%Y/%m/%d') %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>

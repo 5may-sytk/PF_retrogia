@@ -7,7 +7,7 @@
     <div class="row top-page">
       <div class="col text">
         <p>
-          <%= image_tag("Welcom.png", alt: "welcom to レトロジア", width: 600, height: 120, class: "d-inline-block align-text-top mr-2") %>
+          <%= image_tag("icon/Welcom.png", alt: "welcom to レトロジア", width: 600, height: 120, class: "d-inline-block align-text-top mr-2") %>
         </p>
         <br>
         <h4>
@@ -19,10 +19,13 @@
         </h4>
       </div>
 
-      <div class="col">
+      <div class="col btn-area">
+        <%= button_to "Log in", new_user_session_path, method: :get , class: "login-button" %>
+        <%= button_to "Sign up", new_user_registration_path, method: :get , class: "signup-button" %>
+        <%= button_to "Gest sign in", users_guest_sign_in_path, method: :get , class: "gest-login-button" %>
       </div>
     </div>
   </div>
-
+  <br>
 </div>
 </div>

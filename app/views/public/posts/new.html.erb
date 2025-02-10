@@ -1,2 +1,22 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<%= stylesheet_link_tag 'new_post_styles' %>
+
+<div class="container">
+	<div class="row">
+    
+    <div class="col-2 sidebar">
+      <!-- サイドバー -->
+      <%= render 'sidebar' %> 
+    </div>
+
+    <div class="col-9"> 
+    <!-- 入力フォーム --> 
+      <div class="row">
+        <div class="col p-forms">
+          <h2 class = "title"> New</h2> 
+          <br>
+          <%= render 'form', post: @post, form_url: public_posts_path, submit_text: ' 新規登録 ' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

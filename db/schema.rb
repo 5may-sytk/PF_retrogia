@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_02_04_161530) do
+ActiveRecord::Schema.define(version: 2025_02_07_170121) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,15 +58,17 @@ ActiveRecord::Schema.define(version: 2025_02_04_161530) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_bookmarks_on_post_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
     t.string "location"
     t.datetime "event_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -74,6 +76,8 @@ ActiveRecord::Schema.define(version: 2025_02_04_161530) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_comments_on_post_id"
+    t.index ["user_id"], name: "index_post_comments_on_user_id"
   end
 
   create_table "post_tags", force: :cascade do |t|
@@ -81,18 +85,34 @@ ActiveRecord::Schema.define(version: 2025_02_04_161530) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["user_id"], name: "index_post_tags_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "contents"
-    t.string "address", null: false
-    t.float "latitude", null: false
-    t.float "longitude", null: false
-    t.datetime "visited_at", null: false
-    t.boolean "is_active", null: false
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "visited_at"
+    t.string "tags"
+    t.integer "visibility", default: 0
+    t.integer "user_id"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_posts_on_event_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -108,7 +128,8 @@ ActiveRecord::Schema.define(version: 2025_02_04_161530) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.text "introduction"
+    t.text "introduction", default: "こんにちは！！"
+    t.boolean "is_public", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -117,4 +138,6 @@ ActiveRecord::Schema.define(version: 2025_02_04_161530) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
