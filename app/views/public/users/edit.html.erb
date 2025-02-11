@@ -11,6 +11,14 @@
     <!-- 編集画面 -->
     <div class="col-9 u-edit-forms"> 
     <br>
+      <% if @user.errors.any? %>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    <br>
       <%= form_with(model: @user, url: public_user_path(@user)) do |f| %>
 
         <!-- 画像 -->

@@ -14,6 +14,15 @@
         <div class="col p-forms">
           <h2 class = "title"> New</h2> 
           <br>
+          <% if @post.errors.any? %>
+            <%= @post.errors.count %>件のエラーが発生しました
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <br>
           <%= render 'form', post: @post, form_url: public_posts_path, submit_text: ' 新規登録 ' %>
         </div>
       </div>

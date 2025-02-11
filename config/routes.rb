@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get "followers" => "relationships#followers", as: "followers"
       collection do
         get 'confirmation'
+        patch 'leave'
       end
     end
 
