@@ -18,11 +18,11 @@
                 <td>
                   <span class="image">
                     <% if post.post_image.attached? %>
-                      <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
+                      <%= link_to public_post_path(post), class: 'side-nav-item' do %>
                         <%= image_tag url_for(post.post_image), size: "250x200" %>
                       <% end %>
                     <% else %>
-                      <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
+                      <%= link_to public_post_path(post), class: 'side-nav-item' do %>
                         <%= image_tag 'noimage.png', size: "250x200" %>
                       <% end %>
                     <% end %>
@@ -34,7 +34,7 @@
                     <br>
                   </span>
                   <span class="">
-                    <%= link_to public_post_path(post.id), class: 'btn post-title' do %>
+                    <%= link_to public_post_path(post), class: 'btn post-title' do %>
                       <%= post.title %><br>
                     <% end %>
                   </span>

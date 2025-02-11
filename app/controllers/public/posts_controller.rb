@@ -23,11 +23,15 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user = User.find(params[:id])
+    @user = @post.user
   end
 
   def edit
     @post = Post.find(params[:id])
+    @user = @post.user
+    unless @user.id == current_user.id
+      redirect_to public_posts_path
+    end
   end
 
   def update
