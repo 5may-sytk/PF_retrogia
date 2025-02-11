@@ -7,6 +7,7 @@
 .bg-image {
   position: relative;
   background-image: url('bg-image/PENTAFANPK98003_TP_V.jpg');
+  /*  background-image: image-url("bg-image/PENTAFANPK98003_TP_V.jpg");  */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -41,3 +42,10 @@
   -webkit-text-stroke: 1px #eae8e1; 
   text-stroke: 1px #eae8e1;
 }
+
+.login-btn-area{
+  display: flex;
+  justify-content: center; /* 水平方向（横方向）に中央寄せ */
+  margin-top: 40px;
+}
+

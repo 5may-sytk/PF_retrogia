@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
-    resources :posts do
+    resources :posts, only: [:index, :show, :destroy] do 
       resources :post_comments, only: [:destroy]
     end
   end
 
   namespace :public do
-    resources :users, only: [:show, :edit, :update, :destroy] do
+    resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get "followings" => "relationships#followings", as: "followings"
       get "followers" => "relationships#followers", as: "followers"
+      collection do
+        get 'confirmation'
+        patch 'leave'
+      end
     end
 
     resources :posts do
@@ -18,7 +22,7 @@ Rails.application.routes.draw do
         get 'following_feed'
       end
       resources :post_comments, only: [:create, :destroy]
-      resources :bookmarks, only: [:create, :destroy]
+      resources :bookmarks, only: [:index, :create, :destroy]
       get "bookmarked_posts" => "posts#bookmarked"
     end
   end

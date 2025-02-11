@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'user_edit_styles' %>
 
 <div class="container">
-	<div class="row">
+	<div class="row views">
     
     <div class="col-2 sidebar">
       <!-- サイドバー --> 
@@ -10,6 +10,14 @@
     
     <!-- 編集画面 -->
     <div class="col-9 u-edit-forms"> 
+    <br>
+      <% if @user.errors.any? %>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <br>
       <%= form_with(model: @user, url: public_user_path(@user)) do |f| %>
 
@@ -52,9 +60,12 @@
 
         <!-- 承認 --> 
           <div class = "submit row justify-content-center">
-            <%= f.submit " 保存 ", class: "btn btn-sm btn-success" %>
+            <%= f.submit " 保存 ", class: "btn btn-sm submit-button" %>
+            <span>　　</span>
+            <!-- 退会 --> 
+            <%= link_to '退会する', confirmation_public_users_path, class: 'btn unsubsribe-button' %>
           </div>
-        <br>
+
       <% end %>
     </div>
   </div>

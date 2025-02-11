@@ -11,10 +11,12 @@
 .about-title {
   color: #622d18;
   text-align: center;
+  z-index: 2; 
 }
 
 .about-text {
   color: #622d18;
   text-align: center;
   padding: 20px;
+  z-index: 2; 
 }

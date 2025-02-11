@@ -12,6 +12,13 @@ ja:
     attributes:
       post:
         user: "ユーザーid"
+        title: "タイトル"
+        address: "住所/訪問場所"
+        visited_at: "訪問日時"
+        tags: "タグ"
+        visibility: "公開範囲"
+      user:
+        name: "名前"
   date:
     abbr_day_names:
     - 日

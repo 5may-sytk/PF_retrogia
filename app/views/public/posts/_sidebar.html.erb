@@ -26,12 +26,12 @@
     </li>
     <li>
       <%= link_to following_feed_public_posts_path, class: 'btn side-nav-item' do %>
-        Preference
+        <!-- Preference -->
       <% end %>
     </li>
     <li>
       <%= link_to public_post_bookmarked_posts_path(current_user.id), class: 'btn side-nav-item' do %>
-        Bookmark
+        <!-- Bookmark -->
       <% end %>
     </li>
     <li>
@@ -40,7 +40,7 @@
     </li>
     <li>
       <%= link_to public_user_followings_path(current_user.id), class: 'btn side-nav-item' do %>
-        Follower
+        <!-- Follower -->
       <% end %>
     </li>
   <% else %>

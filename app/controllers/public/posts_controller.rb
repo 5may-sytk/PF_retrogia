@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def new
     @post = Post.new
   end
@@ -7,7 +9,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
-    if @post.save!
+    if @post.save
       redirect_to public_posts_path
     else
       flash.now[:notice] = "登録に失敗しました。"
@@ -21,6 +23,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
