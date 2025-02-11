@@ -20,10 +20,12 @@
       <div class="row user-info">
         <table class="table table-borderless user-table-edit">
         <tr>
+          <% if @user == current_user %>
           <th></th>
           <td>
             <%= button_to "User Edit", edit_public_user_path(@user), method: :get , class: "edit-button" %>
           </td>
+          <% end %>
         </tr>
         </table>
         <table class ="table user-table">
@@ -50,15 +52,17 @@
       <br>
 
       <div class="row user-posts">
-        <% @posts.each do |post| %>
-          <% if post.post_image.attached? %>
-            <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
-              <%= image_tag url_for(post.post_image), size: "250x200" %>
+        <div class="row user-post-image">
+          <% @posts.each do |post| %>
+            <% if post.post_image.attached? %>
+              <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
+                <%= image_tag url_for(post.post_image), size: "150x100" %>
+              <% end %>
+            <% else %>
+              <%= image_tag 'noimage.png', size: "150x100" %>
             <% end %>
-          <% else %>
-            <%= image_tag 'noimage.png', size: "250x200" %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
