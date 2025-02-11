@@ -11,6 +11,9 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
     end
+
+    validates :name, presence: true
+  
   end
 
   has_many :posts

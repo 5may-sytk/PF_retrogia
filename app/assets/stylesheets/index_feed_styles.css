@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.views {
+  margin-bottom: 20px;
+}
+
 .sidebar {
   position: fixed; /*ウィンドウに対して固定された位置に要素を配置*/
   left: 0; /*左側に配置*/
@@ -55,7 +59,9 @@
 }
 .post-user {
   color: #622d18;
-  font-size: 20px;
+  font-size: 15px;
 }
 .post-tags{
+  color: #622d18;
+  font-size: 15px;
 }

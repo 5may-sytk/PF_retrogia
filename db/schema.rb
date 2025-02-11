@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2025_02_07_170121) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "contents"
     t.string "address"
     t.float "latitude"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2025_02_07_170121) do
     t.string "name"
     t.text "introduction", default: "こんにちは！！"
     t.boolean "is_public", default: true
+    t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

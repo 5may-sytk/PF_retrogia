@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'post_show_styles' %>
 
 <div class="container">
-	<div class="row">
+	<div class="row views">
     
     <div class="col-2 sidebar">
       <!-- サイドバー --> 
@@ -14,14 +14,14 @@
         <% if @post.post_image.attached? %>
           <%= image_tag url_for(@post.post_image), size: "300x200" %>
         <% else %>
-          <%= image_tag 'noimage.png', size: "250x150" %>
+          <%= image_tag 'noimage.png', size: "300x200" %>
         <% end %>
       </div>
 
       <br>
       <span class="row btn-area">
-        <%= button_to "Edit", edit_public_post_path(@post), method: :get , class: "post-edit-button" %>
-        <%= button_to "Delete", public_post_path(@post), method: :delete , class: "post-delete-button" %>
+        <%= button_to "Edit", edit_public_post_path(@post), method: :get , class: "edit-button" %>
+        <%= button_to "Delete", public_post_path(@post), method: :delete , class: "delete-button" %>
       </span>
       <br>
 

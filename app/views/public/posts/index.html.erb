@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'index_feed_styles' %>
 
 <div class="container">
-	<div class="row">
+	<div class="row views">
 
     <div class="col-2 sidebar"> 
       <!-- サイドバー -->  
@@ -22,7 +22,9 @@
                         <%= image_tag url_for(post.post_image), size: "250x200" %>
                       <% end %>
                     <% else %>
-                      <%= image_tag 'noimage.png', size: "250x200" %>
+                      <%= link_to public_post_path(post.id), class: 'side-nav-item' do %>
+                        <%= image_tag 'noimage.png', size: "250x200" %>
+                      <% end %>
                     <% end %>
                   </span>
                   </td>

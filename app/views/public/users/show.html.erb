@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'user_show_styles' %>
 
 <div class="container">
-	<div class="row">
+	<div class="row views">
     
     <div class="col-2 sidebar">
       <!-- サイドバー --> 
@@ -22,7 +22,7 @@
         <tr>
           <th></th>
           <td>
-            <%= button_to "User Edit", edit_public_user_path(@user), method: :get , class: "user-edit-button" %>
+            <%= button_to "User Edit", edit_public_user_path(@user), method: :get , class: "edit-button" %>
           </td>
         </tr>
         </table>

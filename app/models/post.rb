@@ -9,4 +9,6 @@ class Post < ApplicationRecord
   #has_many :tags, through: :post_tags
 
   enum posts_visibility_range: { post_public: 0, post_unlisted: 1, post_private:2 }
+
+  validates :title, presence: true
 end
