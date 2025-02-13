@@ -58,7 +58,38 @@
             </tr>
           </tbody>
         </table>
+
+        <table class="table post-link-list">
+          <tbody>
+            <tr>
+              <td class="col-3"></td>
+              <td class="col-1">
+              <%= link_to public_post_post_comment_path(@post.id), class: 'btn post-link' do %>
+                <i class="fa-solid fa-comment fa-xl"></i>
+              <% end %>
+              </td>
+              <td class="col-1">
+              <%= link_to root_path, class: 'btn post-link' do %>
+                <i class="fa-solid fa-heart fa-xl"></i>
+              <% end %>
+              </td>
+              <td class="col-1">
+              <%= link_to root_path, class: 'btn post-link' do %>
+                <i class="fa-solid fa-bookmark fa-xl"></i>
+              <% end %>
+              </td>
+              <td class="col-1">
+              <%= link_to root_path, class: 'btn post-link' do %>
+                <i class="fa-solid fa-location-dot fa-xl"></i>
+              <% end %>
+              </td>
+              <td class="col-3"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <br>
 
       <div class="row back-btn-area">
         <button class="btn back-button" onclick="goBack()">戻る</button>
