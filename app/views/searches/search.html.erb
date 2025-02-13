@@ -17,7 +17,21 @@
             <tbody>
               <% @users.each do |user| %>
                 <tr>
-                  <td><%= user.name %></td>
+                  <td>
+                    <% if user.user_image.attached? %>
+                      <%= link_to public_user_path(user.id), class: 'post-user' do %>
+                        <%= image_tag url_for(user.user_image), size: "175x150" %>
+                      <% end %>
+                    <% else %>
+                      <%= link_to public_user_path(user.id), class: 'post-user' do %>
+                        <%= image_tag 'icon/camera.logo2.png', size: "175x150" %>
+                      <% end %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to public_user_path(user.id), class: 'post-user' do %>
+                      <%= user.name %></td>
+                    <% end %>
                 </tr>
               <% end %>
             </tbody>
@@ -25,7 +39,22 @@
             <tbody>
               <% @posts.each do |post| %>
                 <tr>
-                  <td><%= post.title %></td>
+                  <td>
+                    <% if post.post_image.attached? %>
+                      <%= link_to public_post_path(post), class: 's-post-image' do %>
+                        <%= image_tag url_for(post.post_image), size: "175x150" %>
+                      <% end %>
+                    <% else %>
+                      <%= link_to public_post_path(post), class: 's-post-image' do %>
+                        <%= image_tag 'noimage.png', size: "175x150" %>
+                      <% end %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to public_post_path(post), class: 's-post-title' do %>
+                      <%= post.title %>
+                    <% end %>
+                  </td>
                 </tr>
               <% end %>
             </tbody>
