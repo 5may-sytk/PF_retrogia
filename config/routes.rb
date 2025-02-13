@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'searches/search'
   namespace :public do
     get 'favorites/index'
   end
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
   
   root to: "homes#top"
   get 'home/about' => 'homes#about', as:'about'
+  get "search" => "searches#search"
 
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
