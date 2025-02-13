@@ -18,6 +18,7 @@
           <%= f.label :"ニックネーム" %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "ニックネーム",placeholder:"Nick Name", class:"form-control", size:40; %>
           <%= f.hidden_field :introduction, value: "初めまして!" %>
+          <%= f.hidden_field :unique_id, value: SecureRandom.alphanumeric(10) %>
         </div>
       </div>
 

@@ -5,6 +5,9 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
 
           validates :name, presence: true
+          # 名前を日本語に限定
+          validates :name, format: { with: /\A[A-Za-zぁ-んァ-ヶー一-龠]+\z/, message: "は日本語で入力してください" }
+
 
           
   GUEST_USER_EMAIL = "guest@example.com"
@@ -14,7 +17,6 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
     end
-  
   end
 
   has_many :posts
