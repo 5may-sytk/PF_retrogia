@@ -4,6 +4,10 @@
   </div>
 
   <br>
+  <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+  <br>
 
   <div class="row" style="margin-bottom: 10px;">
     <%= form_with model: @user, url: user_session_path do |f| %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'searches/search'
+  namespace :public do
+    get 'favorites/index'
+  end
   namespace :admin do
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users
     resources :posts, only: [:index, :show, :destroy] do 
       resources :post_comments, only: [:destroy]
     end
@@ -21,8 +25,9 @@ Rails.application.routes.draw do
       collection do
         get 'following_feed'
       end
-      resources :post_comments, only: [:create, :destroy]
+      resources :post_comments, only: [:index, :create, :destroy]
       resources :bookmarks, only: [:index, :create, :destroy]
+      resources :favorites, only: [:index, :create, :destroy]
       get "bookmarked_posts" => "posts#bookmarked"
     end
   end
@@ -43,7 +48,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+    get "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

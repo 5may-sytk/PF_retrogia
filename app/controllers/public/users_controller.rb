@@ -29,7 +29,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(current_user.id)
     @user.update(is_active: false)
     reset_session
-    flash[:notice] = "退会が完了しました"
+    flash[:comment] = "退会が完了しました"
     redirect_to root_path
   end
 

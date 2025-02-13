@@ -11,6 +11,10 @@
     <!-- 編集画面 -->
     <div class="col-9 u-edit-forms"> 
     <br>
+      <div class="flash">
+              <%= flash[:notice] %>
+      </div>
+    <br>
       <% if @user.errors.any? %>
         <ul>
           <% @user.errors.full_messages.each do |message| %>

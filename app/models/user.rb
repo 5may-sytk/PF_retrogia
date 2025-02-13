@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
           validates :name, presence: true
 
+          
   GUEST_USER_EMAIL = "guest@example.com"
 
   def self.guest
