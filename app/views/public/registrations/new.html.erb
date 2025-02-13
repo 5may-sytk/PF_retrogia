@@ -17,6 +17,7 @@
         <div class="col field">
           <%= f.label :"ニックネーム" %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "ニックネーム",placeholder:"Nick Name", class:"form-control", size:40; %>
+          <%= f.hidden_field :introduction, value: "初めまして!" %>
         </div>
       </div>
 
