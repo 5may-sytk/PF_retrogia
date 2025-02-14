@@ -1,5 +1,5 @@
 <div class="row search_form">
-  <%= form_with url: search_path, local: true, method: :get, class: "form-inline" do |f| %>
+  <%= form_with url: url_path, local: true, method: :get, class: "form-inline" do |f| %>
     <div class="col-sm-7 mb-6 search_form_groupe">
       <%= f.text_field :word, class: "form-control", placeholder: "キーワードを入力してください", size:40;%>
     </div>
