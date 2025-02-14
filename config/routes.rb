@@ -3,9 +3,12 @@ Rails.application.routes.draw do
     get 'favorites/index'
   end
   namespace :admin do
-    resources :users
+    resources :users, only: [:index, :show, :destroy]
     resources :posts, only: [:index, :show, :destroy] do 
       resources :post_comments, only: [:destroy]
+      collection do
+        get 'withdrawal'
+      end
     end
   end
 

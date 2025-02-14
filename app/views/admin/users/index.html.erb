@@ -1,2 +1,45 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div class="container">
+  <div class="row views">
+      <h4 class="title">登録ユーザー</h4><br>
+    </div>
+
+    <div class="col title">
+      <div class="row user-info-table">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>ユーザー画像</th>
+              <th>ユーザー名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <%= user.id %>
+                </td>
+                <td>
+                  <%= link_to admin_user_path(user.id), class: 'btn post-user' do %>
+                    <% if user.user_image.attached? %>
+                      <%= image_tag url_for(user.user_image), size: "100x70" %>
+                    <% else %>
+                      <%= image_tag 'icon/camera.logo2.png', size: "100x70" %>
+                    <% end %>
+                  <% end %>
+                  </td>
+                  <td>
+                    <%= user.name %>
+                    <br>
+                    <br>
+                    <%= user.unique_id %>
+                  </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

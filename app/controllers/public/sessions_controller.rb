@@ -9,13 +9,13 @@ class Public::SessionsController < Devise::SessionsController
   def reject_end_user
     @user = User.find_by(name: params[:user][:name])
   
-    return flash[:notice] = "該当ユーザーが見つかりません" unless @user
-    return flash[:notice] = "パスワードが正しくありません" unless @user.valid_password?(params[:user][:password])
+    return flash.now[:notice] = "該当ユーザーが見つかりません" unless @user
+    return flash.now[:notice] = "パスワードが正しくありません" unless @user.valid_password?(params[:user][:password])
   
     if @user.is_active?
-      flash[:notice] = "項目を入力してください"
+      flash.now[:notice] = "項目を入力してください"
     else
-      flash[:notice] = "退会済みです。再度ご登録をお願いします"
+      flash.now[:notice] = "退会済みです。再度ご登録をお願いします"
       redirect_to new_user_registration_path
     end
   end
