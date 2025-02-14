@@ -20,11 +20,11 @@
       <div class="row user-info">
         <table class="table table-borderless user-table-edit">
         <tr>
-          <% if @user == current_user %>
-          <th></th>
-          <td>
-            <%= button_to "User Edit", edit_public_user_path(@user), method: :get , class: "edit-button" %>
-          </td>
+          <% if @allow_edit %>
+            <th></th>
+            <td>
+              <%= button_to "User Edit", edit_public_user_path(@user), method: :get , class: "edit-button" %>
+            </td>
           <% end %>
         </tr>
         </table>

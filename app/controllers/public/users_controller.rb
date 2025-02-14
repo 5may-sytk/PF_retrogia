@@ -4,6 +4,14 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(10)
+    
+    return unless @user == current_user
+    #return unless current_user.email != self.guest_user_email
+    @allow_edit = true
+  end
+
+  def self guest_user_email
+    "guest@example.com"
   end
 
   def edit
