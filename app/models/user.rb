@@ -19,6 +19,10 @@ class User < ApplicationRecord
     end
   end
 
+  def guest_user?
+    email == GUEST_USER_EMAIL
+  end
+
   has_many :posts
   #has_many :post_comments, dependent: :destroy
   #has_many :bookmarks, dependent: :destroy
