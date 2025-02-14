@@ -7,6 +7,7 @@ class User < ApplicationRecord
           validates :name, presence: true
           # 名前を日本語に限定
           validates :name, format: { with: /\A[A-Za-zぁ-んァ-ヶー一-龠]+\z/, message: "は日本語で入力してください" }
+          validates :introduction, length: { maximum: 300 }
 
 
           
@@ -20,7 +21,7 @@ class User < ApplicationRecord
   end
 
   has_many :posts
-  #has_many :post_comments, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
   #has_many :bookmarks, dependent: :destroy
 
   # フォローしているユーザーとのアクティブなリレーションシップ

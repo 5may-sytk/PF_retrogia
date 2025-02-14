@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       collection do
         get 'following_feed'
       end
-      resources :post_comments, only: [:index, :create, :destroy]
+      resources :post_comments, only: [:show, :create, :destroy]
       resources :bookmarks, only: [:index, :create, :destroy]
       resources :favorites, only: [:index, :create, :destroy]
       get "bookmarked_posts" => "posts#bookmarked"
