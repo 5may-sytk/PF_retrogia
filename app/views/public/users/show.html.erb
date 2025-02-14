@@ -1,60 +1,15 @@
 <%= stylesheet_link_tag 'user_show_styles' %>
 
 <div class="container">
-	<div class="row views">
-    
+  <div class="row views">
     <div class="col-2 sidebar">
       <!-- サイドバー --> 
-      <%= render 'public/posts/sidebar' %> 
+      <%= render 'public/posts/sidebar' %>
     </div>
 
     <div class="col-10 user-show"> 
     <!-- ユーザー詳細 -->
-      <div class="flash">
-              <%= flash[:notice] %>
-      </div>
-      <div class="row user_image">
-          <% if @user.user_image.attached? %>
-            <%= image_tag url_for(@user.user_image), size: "250x200" %>
-          <% else %>
-            <%= image_tag 'icon/camera.logo2.png', size: "250x200" %>
-          <% end %>
-      </div>
-      <div class="row user-info">
-        <table class="table table-borderless user-table-edit">
-        <tr>
-          <% if @allow_edit %>
-            <th></th>
-            <td>
-              <%= button_to "User Edit", edit_public_user_path(@user), method: :get , class: "edit-button" %>
-            </td>
-          <% end %>
-        </tr>
-        </table>
-        <table class ="table user-table">
-          <tr>
-            <th>User Nmae</th>
-            <td colspan="5"></td>
-            <td>
-              <%= @user.name %>
-            </td>
-          </tr>
-          <tr>
-            <th>Introduction</th>
-            <td colspan="5"></td>
-            <td>
-              <%= @user.introduction %>
-            </td>
-          </tr>
-          <tr>
-            <th>User ID</th>
-            <td colspan="5"></td>
-            <td>
-              <%= @user.unique_id %>
-            </td>
-          </tr>
-        </table>
-      </div>
+      <%= render 'userinfo', user: @user, allow_edit:@allow_edit, btn_name:"User Edit", btn_path:edit_public_user_path(@user), btn_class:'edit-button'  %>
 
       <br>
       <div class="line"></div>
