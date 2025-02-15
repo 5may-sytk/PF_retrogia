@@ -10,6 +10,16 @@
 
     <div class="col-9 main-content"> 
     <!--メイン-->
+      <br>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+      
+      <% if user_signed_in? %>
+        <%= render 'searches/search', url_path:public_search_path %>
+      <% end %>
+      <br>
+
       <div class="posts">
         <table class='table table-hover'>
           <tbody>

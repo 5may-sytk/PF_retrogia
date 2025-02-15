@@ -2,7 +2,23 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :user_state, only: [:create]
+  before_action :reject_end_user, only: [:create]
+
+  protected
+
+  def reject_end_user
+    @user = User.find_by(name: params[:user][:name])
+  
+    return flash.now[:notice] = "該当ユーザーが見つかりません" unless @user
+    return flash.now[:notice] = "パスワードが正しくありません" unless @user.valid_password?(params[:user][:password])
+  
+    if @user.is_active?
+      flash.now[:notice] = "項目を入力してください"
+    else
+      flash.now[:notice] = "退会済みです。再度ご登録をお願いします"
+      redirect_to new_user_registration_path
+    end
+  end
 
   # GET /resource/sign_in
   # def new
@@ -26,15 +42,4 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  private
-# アクティブであるかを判断するメソッド
-  def user_state
-    # 入力されたemailからアカウントを1件取得
-    user = User.find_by(email: params[:user][:email])
-    # アカウントを取得できなかった場合、このメソッドを終了する
-    return if user.nil?
-    # 取得したアカウントのパスワードと入力されたパスワードが一致していない場合、このメソッドを終了する
-    return unless user.is_active
-    # ユーザーが有効な場合の処理を続ける（例：サインイン処理など）
-  end
 end

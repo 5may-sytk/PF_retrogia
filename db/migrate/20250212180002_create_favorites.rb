@@ -1,9 +1,8 @@
-class CreatePostComments < ActiveRecord::Migration[6.1]
+class CreateFavorites < ActiveRecord::Migration[6.1]
   def change
-    create_table :post_comments do |t|
+    create_table :favorites do |t|
       t.references :user, null: false
       t.references :post, null: false
-      t.text :comment
 
       t.timestamps
     end

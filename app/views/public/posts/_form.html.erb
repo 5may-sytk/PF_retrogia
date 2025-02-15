@@ -37,6 +37,7 @@
     <label for"visited_at", class="col-sm-4 col-form-label">訪問日時</label>
     <div class="col-sm-8">
       <%= f.datetime_field :visited_at, class:"form-control", id:"timeInput" %>
+
       <div class="row time-form" >
         <button type="button" class="btn now--button" onclick="setCurrentTime()">現在時刻を設定</button>
         <script>
@@ -52,6 +53,7 @@
           }
         </script>
       </div>
+      
     </div>
   </div>
 
