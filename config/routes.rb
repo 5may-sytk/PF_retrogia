@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     resources :users, only: [:index, :show, :update, :destroy] do
-      collection do
-        get 'withdrawal'
-      end
     resources :posts, only: [:show, :destroy] do 
       resources :post_comments, only: [:destroy]
       end
