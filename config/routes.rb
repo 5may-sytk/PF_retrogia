@@ -3,13 +3,12 @@ Rails.application.routes.draw do
     get 'favorites/index'
   end
   namespace :admin do
-    resources :users, only: [:index, :show, :destroy]
-    resources :posts, only: [:index, :show, :destroy] do 
+    resources :users, only: [:index, :show, :update, :destroy] do
+    resources :posts, only: [:show, :destroy] do 
       resources :post_comments, only: [:destroy]
-      collection do
-        get 'withdrawal'
       end
     end
+    get "search" => "searches#search"
   end
 
   namespace :public do
@@ -32,11 +31,11 @@ Rails.application.routes.draw do
       resources :favorites, only: [:index, :create, :destroy]
       get "bookmarked_posts" => "posts#bookmarked"
     end
+      get "search" => "searches#search"
   end
   
   root to: "homes#top"
   get 'home/about' => 'homes#about', as:'about'
-  get "search" => "searches#search"
 
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {

@@ -1,16 +1,21 @@
+<%= stylesheet_link_tag 'admin_u_index' %>
+
+
 <div class="container">
   <div class="row views">
-      <h4 class="title">登録ユーザー</h4><br>
+      <h4 class="admin-users">登録ユーザー</h4><br>
     </div>
 
-    <div class="col title">
+    <div class="col a-users">
+      <%= render 'admin/searches/search', url_path:admin_search_path %>
       <div class="row user-info-table">
         <table class="table table-hover">
           <thead>
             <tr>
               <th>ID</th>
-              <th>ユーザー画像</th>
+              <th></th>
               <th>ユーザー名</th>
+              <th>ユニークID</th>
             </tr>
           </thead>
           <tbody>
@@ -30,8 +35,8 @@
                   </td>
                   <td>
                     <%= user.name %>
-                    <br>
-                    <br>
+                  </td>
+                  <td>
                     <%= user.unique_id %>
                   </td>
               </tr>

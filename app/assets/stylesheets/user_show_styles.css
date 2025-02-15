@@ -11,6 +11,7 @@
 .user_image {
   display: flex;
   justify-content: center;
+  margin: 10px;
 }
 
 .user-info {
@@ -31,7 +32,7 @@
 }
 
 .user-posts {
-  display: flex;
+  display: flexbox;
   flex-wrap: wrap-reverse;
 }
 
@@ -43,7 +44,4 @@
 .user-post-image:last-child {
   margin: 0 auto; /* 画像を水平方向に中央に配置 */
   display: block;
-}
-
-.user-post-info{
 }
